@@ -38,7 +38,7 @@ This will be the only assignment that we will actually check your commits on.
     ```
     > ./gen_a1.sh
     ```
-    
+
     Recall that if you cannot execute the above, you may need to modify the file so that it can be executed.
 
 You now have the first assignment and can proceed.  If at any time you wish to start over (e.g. to check your results), simply execute `gen_a1.sh` again from your `a1/` directory and allow it to remove the `dungeon` folder.  You will then have a fresh copy.
@@ -62,10 +62,11 @@ In order to proceed, Harry needs to enter the dungeon. But he’s stuck as the `
 Note that Harry cannot use `sudo`, nor does he know the root password to use `su`, so you will need to make sure that a regular user can enter.
 
 > TODO 1.1:
->
+> chmod -R 777 dungeon/
+find dungeon -type d,f -exec chmod 777 {} ';'
 > ```bash
 > # Write the command(s) you used here, one command per line
-> 
+>
 > ```
 
 Thanks to your help, Harry is able to enter the `dungeon`. In front of him are several doors. He also knows that behind each door there can be several other doors, and each door behind that may lead to even more doors. Since time is very critical for Harry, there is no time to manually count all of them.
@@ -78,18 +79,16 @@ Thanks to your help, Harry is able to enter the `dungeon`. In front of him are s
 ### Task 1.2: *Find* out how many *directories* are in the `dungeon` folder.
 
 > TODO 1.2:
->
+>find dungeon/ -type d | wc -l
 > **Write your answer here (e.g. There are 42 directories)**:
->
->
->
+> 265
 > ```bash
 > # Write the command(s) you used here, one command per line
-> 
+>
 > ```
 
 *Hint*: there are more than 111.
-    
+
 ## Task 2
 
 Hagred hinted to Harry that the `dungeon` might contain excerpts of German literature throughout the various rooms.  Curious about *how* Hagred would know such a thing, Harry continues forward through the first door.  He comes face to face with the *Keeper of the Bridge of Death*.  The keeper demands an answer, but as the dungeon is very dark he has grown weary of querying what a person's favorite color is.
@@ -103,9 +102,15 @@ You do not need to create a script, but if you know how go for it!  Inline the s
 > TODO: 2.1
 >
 > **Write your answer here**:
->
->
->
+> wc - w file
+> find .  -type f -exec wc -w {} +
+> f=$(find . -type f | wc -l)
+> echo $(w/f)
+
+
+w= find dungeon/  -type f -exec wc -w {} + | tail -1 |awk '{print $1}'
+f= find dungeon/ -type f | wc -l
+echo $(w/f)
 > ```bash
 > # First, include the command to calculate the number of words.
 
@@ -120,16 +125,9 @@ Reassemble the original text into one file.
 >
 > **Who is the author of the text?**
 >
->
->
 > **What is the title of the text?**
 >
->
->
 > **Have you read it?**
->
->
->
 
 ## Task 3
 
@@ -207,7 +205,7 @@ To receive full credit, you may not use a text-editor to edit the files.  You ar
 Now that you have analyzed the potions, tell Harry which one to drink.
 
 > TODO 3.2:
-> 
+>
 > **Write the potion Harry should drink to get the key**:
 > c
 >
@@ -241,43 +239,42 @@ A partial match does not count: "and" contains "an", but should not be listed in
 #### Was this assignment entertaining?
 
 > TODO Written
-> 
+>
 > Yes!
 
 #### Rate the difficulty of this assignment.  Too hard?  Too easy?  Just right?
 
 > TODO Written
-> 
-> Just right. 
+>
+> Just right.
 
 #### How long did it take you to complete this assignment?
 
 > TODO Written
-> 
-> 2 hours. 
+>
+> 2 hours.
 
 #### How soon did you start?  Be honest, this information helps us identify how the class is doing as a whole.
 
 > TODO Written
-> 
-> Feb 7th. 
+>
+> Feb 7th.
 
 #### What do you like about this class?
 
 > TODO Written
-> 
-> It is useful, for interview and daily use. 
+>
+> It is useful, for interview and daily use.
 
 
 #### What would you change about this class?
 
 > TODO Written
-> 
-> Don' know. 
+>
+> Don' know.
 
 #### Anything else you would like to add?
 
 > TODO Written
 >
-> No. 
-
+> No.
