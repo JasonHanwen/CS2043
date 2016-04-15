@@ -102,18 +102,9 @@ You do not need to create a script, but if you know how go for it!  Inline the s
 > TODO: 2.1
 >
 > **Write your answer here**:
-> wc - w file
-> find .  -type f -exec wc -w {} +
-> f=$(find . -type f | wc -l)
-> echo $(w/f)
-
-
-w= find dungeon/  -type f -exec wc -w {} + | tail -1 |awk '{print $1}'
-f= find dungeon/ -type f | wc -l
-echo $(w/f)
-> ```bash
-> # First, include the command to calculate the number of words.
-
+>w=$(find dungeon/ -type f -exec wc -w {} + | tail -1 | awk '{print $1;}')
+>f=$(find dungeon/ -type f | wc -l)
+>echo $((w/f))
 
 You do not need to use commands to perform numerical operations, we will assume that you are going to use a calculator or something to calculate *number of words / number of files*.  +Hacker points for your script `echo`ing the result.
 
