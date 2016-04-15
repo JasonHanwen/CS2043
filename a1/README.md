@@ -65,7 +65,7 @@ Note that Harry cannot use `sudo`, nor does he know the root password to use `su
 >
 > ```bash
 > # Write the command(s) you used here, one command per line
-> sudo find dungeon/ -type d -exec chmod 755 {} +
+> 
 > ```
 
 Thanks to your help, Harry is able to enter the `dungeon`. In front of him are several doors. He also knows that behind each door there can be several other doors, and each door behind that may lead to even more doors. Since time is very critical for Harry, there is no time to manually count all of them.
@@ -85,7 +85,7 @@ Thanks to your help, Harry is able to enter the `dungeon`. In front of him are s
 >
 > ```bash
 > # Write the command(s) you used here, one command per line
-> find . -type d | wc -l
+> 
 > ```
 
 *Hint*: there are more than 111.
@@ -108,13 +108,7 @@ You do not need to create a script, but if you know how go for it!  Inline the s
 >
 > ```bash
 > # First, include the command to calculate the number of words.
-> t=$(find .  -type f -exec wc -w {} + | tail -1)
-> array=($t)
-> w=${array[0]}
-> # Next, include the command to calculate the number of files.
-> f=$(find .  -type f | wc -l)
-> echo $((w/f))
-> ```
+
 
 You do not need to use commands to perform numerical operations, we will assume that you are going to use a calculator or something to calculate *number of words / number of files*.  +Hacker points for your script `echo`ing the result.
 
@@ -176,20 +170,19 @@ Place your answers here:
 > TODO: 3.1
 > ```bash
 > # Make the analysis directory in the correct location.
-> mkdir ./../analysis
+
 >
 > # Analyze potion (a), and place the results into the appropriate file.
-> echo $(find ./a  -type f -exec wc -w {} + | tail -1 | grep -oE '[0-9]+') >> ./../analysis/a.txt
+
 >
 > # Analyze potion (b), and place the results into the appropriate file.
-> echo $(find ./b  -type f -exec wc -w {} + | tail -1 | grep -oE '[0-9]+') >> ./../analysis/b.txt
+
 >
 > # Analyze potion (c), and place the results into the appropriate file.
-> t=$(find ./c  -type f -exec wc -w {} + | tail -1)
-> echo $(find ./c  -type f -exec wc -w {} + | tail -1 | grep -oE '[0-9]+') >> ./../analysis/c.txt
+
+
 >
 > # Analyze potion (d), and place the results into the appropriate file.
-> echo $(find ./d  -type f -exec wc -w {} + | tail -1 | grep -oE '[0-9]+') >> ./../analysis/d.txt
 >
 > ```
 
@@ -224,11 +217,10 @@ Now that you have analyzed the potions, tell Harry which one to drink.
 Add the `analysis` folder to your git repository.  Remember that if you want to add everything in a folder, you can do
 
 ```bash
-git add -A folder_name/
 ```
 
 and the folder as well as all of the files / folders below it will be added.
-
+w
 ## *Challenge* Task 4 (Optional, not required for full credit)
 
 Finally, Harry faces the Voldemort who challenges him to a difficult puzzle. In order to save the world, Harry once again asks for your help.
@@ -240,7 +232,6 @@ A partial match does not count: "and" contains "an", but should not be listed in
 > TODO: Task 4
 > ```bash
 > # Include below the command(s) to store the results to output.txt
-> grep -riH "[^a-z]an[^a-z]" ./ | cut -d':' -f 1 | uniq > output.txt
 > ```
 
 ## Task 5
