@@ -22,15 +22,41 @@ fi
 operation="$2"
 touch RESULT.txt
 
-if [ $operation -ne add ] && [ $operation -ne sub ] && [ $operation -ne mul ] && [ $operation -ne div ]; then
+if [ "$operation" != "add" ] && [ "$operation" != "sub" ] && [ "$operation" != "mul" ] && [ "$operation" != "div" ]; then
     echo the operation is not valid
     exit 1
 fi
 
-cat $FileName | while IFS=, read col1 col2
+for var in "$@"
 do
-  echo "I got:$col1|$col2"
+    echo "$var"
 done
+
+cat $FileName | while read line; do
+  echo "$line"
+  echo $line | while IFS=, read -ra arr; do
+    echo ${arr[@]}
+    l="${arr[$3-1]}"
+    for i in ${@:4} ; do
+        r="${arr[$i-1]}"
+        case "$2" in
+          "add") l="$(($l+$r))"
+          ;;
+          "sub") l="$(($l-$r))"
+          ;;
+          "mul") l="$(($l*$r))"
+          ;;
+          "div") l="$(($l/$r))"
+          ;;
+        esac
+    done
+    echo "$l"
+  done
+done
+# cat $FileName | while IFS=, read col1 col2
+# do
+#   echo "I got:$col1|$col2"
+# done
 # done < RESULT.txt
 
 # while read line; do
