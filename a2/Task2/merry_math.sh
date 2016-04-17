@@ -1,17 +1,27 @@
 #! /bin/bash
+function usage() {
+    echo "Usage:"
+    echo "  - Argument 1: the name of file that you want to process"
+    echo "  - Argument 2: the operation to the file" add sub mul div operations
+    echo "  - Argument 3: the maximum length of the line"
+    echo "  - Argument 4: the minimum length of the line"
+}
+
 if [ "$#" -lt 3 ]; then
   echo there are too few parameters
   exit 64
 fi
+
 FileName = "$1"
 
 if [ ! -f $FileName ]; then
     echo "the file does not exist"
     exit 64
 fi
-operation = "$2"
 
+operation = "$2"
 touch RESULT.txt
+
 if [ $operation -ne add] && [ $operation -ne sub] && [ $operation -ne mul] && [ $operation -ne div] ; then
     echo the operation is not valid
     exit 1
