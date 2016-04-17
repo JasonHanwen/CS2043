@@ -1,0 +1,11 @@
+# This is an H1 header
+
+<p>This is a regular paragraph.</p>
+
+##          This is an H2 header
+
+<p>This is another regular paragraph.</p>
+
+###    This is an H3 header.
+
+<p>This is yet another regular paragraph.</p>
