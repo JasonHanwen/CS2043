@@ -6,10 +6,10 @@ if [ ! -f $FileName ]; then
     echo "the file does not exist"
     exit 64
 fi
+#match the regular expression
 
-target="#"
+target="^#{2}"
 replace="<h>"
 cat $FileName | while read line; do
-    echo "$line"
-    sed -e "s/$target/$replace/g" $FileName
+    echo "$line" | sed -i -e "s/$target/$replace/g" result.txt
 done

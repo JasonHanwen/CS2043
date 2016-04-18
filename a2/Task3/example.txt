@@ -2,7 +2,7 @@
 
 <p>This is a regular paragraph.</p>
 
-##          This is an H2 header
+##This is an H2 header
 
 <p>This is another regular paragraph.</p>
 
